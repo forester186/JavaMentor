@@ -65,19 +65,23 @@ public class Main {
                 try {
                     String s1 = str1.substring(0, index); // Определяется 1-ое число в срочке
                     String s2 = str1.substring(index + 1); // Определяется 2-ое число в срочке
-
                     try {
                         for (int i = 0; i < strings.length; i++){
                             if(s1.equals(strings[i])){ // если 1-ое число удовлетворяет условию (> 10) то можно проверять дальше и 2-ое число
                                 int num1 = number[i];
-                                for(int j = 0; j < strings.length; j++){//
-                                    if(s2.equals(strings[j])){ // оба числа удовлетворяют училовиям, поэтому можно производить расчет
-                                        int num2 = number[j];
+                                for(int u = 0; u < strings.length; u++){//
+                                    if(s2.equals(strings[u])){ // оба числа удовлетворяют училовиям, поэтому можно производить расчет
+                                        int num2 = number[u];
                                         Roman roman = new Roman(num1,num2, ch); //созадали объект и передали параметры
                                         roman.sum(); // вызвали метод, который производит расчет
                                         break;
-                                    }else if(!s2.equals(strings[i]) && j!= strings.length - 1){
+                                    }else if(!s2.equals(strings[i]) && u!= strings.length - 1){
                                         continue;
+                                    }else if(s1.equals(s2)){
+                                        int num2 = num1;
+                                        Roman roman = new Roman(num1,num2, ch); //созадали объект и передали параметры
+                                        roman.sum(); // вызвали метод, который производит расчет
+                                        break;
                                     } else throw new Exception("2-ое число больше 10 :(");
 
 
